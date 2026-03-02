@@ -468,8 +468,10 @@ def update_outputs():
             program.OUT6 = out.iloc[0]["Mechanical and environmental cable performance"]
             print("OUT6: " + program.OUT6)
 
+    print("test")
     # OUT18
     if program.IN2:
+        print("OUT18: " + str(program.IN2))
         program.OUT18 = table_7[table_7["Fibre type"]==program.IN2]["Standard"].iloc[0]
         print("OUT18: " + program.OUT18)
 
