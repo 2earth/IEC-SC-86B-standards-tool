@@ -11,7 +11,9 @@
 	<meta charset="UTF-8"> 
 
     <!-- This script tag bootstraps PyScript -->
-	<script type="module" src="https://pyscript.net/releases/2026.2.1/core.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.2.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.2.1/core.js"></script>
+
 
 </head>
 
@@ -35,11 +37,10 @@
 
     <div class="titlebar">
         <img src="./assets/IEC_logo.jpg" id="logo" style="width: 3em;"></img>
-        <p><b>IEC fibre optic connector standards</b></p>
+        <p><b>IEC Fibre Optic Connector Standards</b></p>
         <p>IEC SC 86B: Fibre optic interconnecting devices and passive components</p>
-        <p><b>Updated:</b> 23/02/26</p>
-        <p>This digital tool is intended to assist standards-users in identifying relevant standards for their purpose. In all cases, users are recommended to refer to the latest version of the relevant part.</p>
-        <p>This tool is provided without warranty or guarantee, although every effort has been made to ensure its accuracy. If any issues are identified, please contact the working group here.</p>
+        <p>Updated: 02/03/26</p>
+        <p>This digital tool is intended to assist standards-users in identifying relevant standards for their purpose. In all cases, users are recommended to refer to the latest version of the respective standard.</p>
     </div>
 
     <div id="header-loading-bar">loading the tool - please wait</div>
@@ -79,10 +80,10 @@
                 <div class="tooltip"><sup>(?)</sup><span class="tooltiptext">Select from list</span></div>
                 <select name="IN3" id="IN3">
                     <option hidden disabled selected value></option>
-                    <option value="Primary coated fibre">Primary coated fibre (d=200-245 µm)</option>
-                    <option value="Buffered fibre">Buffered fibre (d=400-900 µm)</option>
-                    <option value="Ribbon fibre">Ribbon fibre (3,0x0,25-4,0x0,5 mm)</option>
-                    <option value="Reinforced cable">Reinforced cable (d=1,4-3,0 mm)</option>
+                    <option value="Primary coated fibre">Primary coated fibre</option>
+                    <option value="Buffered fibre">Buffered fibre</option>
+                    <option value="Ribbon fibre">Ribbon fibre</option>
+                    <option value="Reinforced cable">Reinforced cable</option>
                 </select>
             </span>
 
@@ -99,11 +100,11 @@
                 <div class="tooltip"><sup>(?)</sup><span class="tooltiptext">Select from list</span></div>
                 <select name="IN5" id="IN5">
                     <option hidden disabled selected value></option>
-                    <option value="B (mean ≤ 0,12 dB; ≥97 % ≤ 0,25 dB)">B (mean ≤ 0,12 dB; ≥97 % ≤ 0,25 dB)</option>
-                    <option value="C (mean ≤ 0,25 dB; ≥97 % ≤ 0,5 dB)">C (mean ≤ 0,25 dB; ≥97 % ≤ 0,5 dB)</option>
-                    <option value="D (mean ≤ 0,5 dB; ≥97 % ≤ 1,0 dB)">D (mean ≤ 0,5 dB; ≥97 % ≤ 1,0 dB)</option>
-                    <option value="Bm (mean ≤ 0,3 dB; ≥97 % ≤ 0,6 dB)">Bm (mean ≤ 0,3 dB; ≥97 % ≤ 0,6 dB)</option>
-                    <option value="Cm (mean ≤ 0,5 dB; ≥97 % ≤ 1,0 dB)">Cm (mean ≤ 0,5 dB; ≥97 % ≤ 1,0 dB)</option>
+                    <option value="B">B (mean ≤ 0,12 dB; ≥97 % ≤ 0,25 dB)</option>
+                    <option value="C">C (mean ≤ 0,25 dB; ≥97 % ≤ 0,5 dB)</option>
+                    <option value="D">D (mean ≤ 0,5 dB; ≥97 % ≤ 1,0 dB)</option>
+                    <option value="Bm">Bm (mean ≤ 0,3 dB; ≥97 % ≤ 0,6 dB)</option>
+                    <option value="Cm">Cm (mean ≤ 0,5 dB; ≥97 % ≤ 1,0 dB)</option>
                 </select>
             </span>
 
@@ -124,12 +125,12 @@
                 <div class="tooltip"><sup>(?)</sup><span class="tooltiptext">Select from list</span></div>
                 <select style="margin-bottom: 0.5em;" name="IN7" id="IN7">
                     <option hidden disabled selected value></option>
-                    <option value="C - indoor controlled (-10/+60 °C)">C - indoor controlled (-10/+60 °C)</option>
-                    <option value="C-HD - indoor controlled with additional heat dissipation (-10/+70 °C)">C-HD - indoor controlled with additional heat dissipation (-10/+70 °C)</option>
-                    <option value="OP - outdoor protected (-25/+70 °C)">OP - outdoor protected (-25/+70 °C)</option>
-                    <option value="OP+ - outdoor protected with wider temperature range (-40/+75 °C)">OP+ - outdoor protected with wider temperature range (-40/+75 °C)</option>
-                    <option value="OP+-HD - outdoor protected with wider temperature range and additional heat dissipation  (-40/+85 °C)">OP+-HD - outdoor protected with wider temperature range and additional heat dissipation  (-40/+85 °C)</option>
-                    <option value="OP-HD - outdoor protected with additional heat dissipation (-25/+85 °C)">OP-HD - outdoor protected with additional heat dissipation (-25/+85 °C)</option>
+                    <option value="C">C - indoor controlled (-10/+60 °C)</option>
+                    <option value="C-HD">C-HD - indoor controlled with additional heat dissipation (-10/+70 °C)</option>
+                    <option value="OP">OP - outdoor protected (-25/+70 °C)</option>
+                    <option value="OP+">OP+ - outdoor protected with wider temperature range (-40/+75 °C)</option>
+                    <option value="OP+-HD">OP+-HD - outdoor protected with wider temperature range and additional heat dissipation  (-40/+85 °C)</option>
+                    <option value="OP-HD">OP-HD - outdoor protected with additional heat dissipation (-25/+85 °C)</option>
                 </select>
             </span>
 
@@ -159,15 +160,14 @@
                 <p class="output-right" id="OUT4">to be assigned</p>
             </span>
 
-            <span class="input-line">Mechanical and environmental connector performance
-                <span class="input-line" style="border: 0px; padding-top: 1em;">
-                    <p class="output-left">... terminated as pigtail or patchcord</p>
-                    <p class="output-right" id="OUT5">to be assigned</p>
-                </span>
-                <span class="input-line" style="border: 0px;">
-                    <p class="output-left">... terminated as cable assembly</p>
-                    <p class="output-right" id="OUT6">to be assigned</p>
-                </span>
+            <span class="input-line">
+                <p class="output-left">Mechanical and environmental connector performance (terminated as pigtail or patchcord)</p>
+                <p class="output-right" id="OUT5">to be assigned</p>
+            </span>
+
+            <span class="input-line">
+                <p class="output-left">Mechanical and environmental cable performance</p>
+                <p class="output-right" id="OUT6">to be assigned</p>
             </span>
 
 
@@ -236,7 +236,9 @@
 
     <div class="titlebar">
         <p></p>        
-        <p>This digital tool is intended to assist standards-users in identifying relevant standards for their purpose. In all cases, users are recommended to refer to the latest version of the relevant part.</p>
+        <p>Disclaimer: This tool was created to the best of our knowledge and care. No guarantee can be given for the correctness of all information. It is recommended to have all information checked by an expert.</p>
+        <p>Information on standards and purchasing of standards: <a href="https://webstore.iec.ch/" target="_blank">IEC webstore</a></p>
+        <p>Contact for questions or comments: <a href="https://www.iec.ch/ords/f?p=107:3:0::::P3_ADDRESS_ID,P3_NAMETO,P3_SUBJECT:92120,Ryo%20Koyama,Selector%20for%20relevant%20IEC%20connector%20standards" target="_blank">SC 86B secretary</a></p>
         <p>Guide to nomenclature for a standard "IEC AAAAA-x-yy":</p>
         <ul>
             <li>-x - to be determined</li>
@@ -244,7 +246,7 @@
             <li>*p – planned</li>
             <li>*d – in development</li>
         </ul>
-        <p>"Not available" – not to be forthcoming in next few years</p>
+        <p>"Not available" – not available in the foreseeable future</p>
 
     </div>
 

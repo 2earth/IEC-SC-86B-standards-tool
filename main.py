@@ -35,7 +35,7 @@ class program_state:
             "4": [
                 "Connector type",
                 "Cable type",
-                "Mechanical and environmental cable performance (terminated as cable assembly)"
+                "Mechanical and environmental cable performance"
             ],
             "5": [
                 "Connector type",
@@ -74,6 +74,9 @@ class program_state:
             "Filter 4": [
                 "IN3",
                 "IN1"
+            ],
+            "Filter 5": [
+                "IN7"
             ]
         }
 
@@ -84,9 +87,9 @@ class program_state:
             "IN2": ["Single-mode", "Multimode"],
             "IN3": ["Primary coated fibre", "Buffered fibre", "Ribbon fibre", "Reinforced cable"],
             "IN4": ["PC", "APC"],
-            "IN5": ["B (mean ≤ 0,12 dB; at least 97 % ≤ 0,25 dB)", "C (mean ≤ 0,25 dB; at least 97 % ≤ 0,5 dB)", "D (mean ≤ 0,5 dB; at least 97% ≤ 1,0 dB)", "Bm (mean ≤ 0,3 dB; at least 97 % ≤ 0,6 dB)", "Cm (mean ≤ 0,5 dB; at least 97 % ≤ 1,0 dB)"],
+            "IN5": ["B", "C", "D", "Bm", "Cm"],
             "IN6": ["1 (≥ 60 dB, mated)", "2 (≥ 45 dB, mated)", "3 (≥ 35 dB, mated)", "4 (≥ 26 dB, mated)", "1m (≥ 45 dB, mated)", "2m (≥ 20 dB, mated)"],
-            "IN7": ["C - indoor controlled (-10/+60 °C)", "C-HD - indoor controlled with additional heat dissipation (-10/+70 °C)", "OP - outdoor protected (-25/+70 °C)", "OP+ - outdoor protected with wider temperature range (-40/+75 °C)", "OP+-HD - outdoor protected with wider temperature range and additional heat dissipation  (-40/+85 °C)", "OP-HD - outdoor protected with additional heat dissipation (-25/+85 °C)"]
+            "IN7": ["C", "C-HD", "OP", "OP+", "OP+-HD", "OP-HD"]
         }
 
     def reset_input_values(self):
@@ -205,7 +208,8 @@ def update_inputs():
         "Filter 1": program.tables["Filter 1"],
         "Filter 2": program.tables["Filter 2"],
         "Filter 3": program.tables["Filter 3"],
-        "Filter 4": program.tables["Filter 4"]
+        "Filter 4": program.tables["Filter 4"],
+        "Filter 5": program.tables["Filter 5"]
     }
     
     # column headings
@@ -213,7 +217,8 @@ def update_inputs():
         "Filter 1": program.expected_sheets_and_columns["Filter 1"],
         "Filter 2": program.expected_sheets_and_columns["Filter 2"],
         "Filter 3": program.expected_sheets_and_columns["Filter 3"],
-        "Filter 4": program.expected_sheets_and_columns["Filter 4"]
+        "Filter 4": program.expected_sheets_and_columns["Filter 4"],
+        "Filter 5": program.expected_sheets_and_columns["Filter 5"]
     }
 
     # inputs
@@ -231,7 +236,7 @@ def update_inputs():
 
     # filter tables
     tables = filter_tables(tables, column_headings, inputs)
-
+    
     # check for any situations where there's now only 1 remaining valid input, and if so, enforce it
     inputs = enforce_only_options(tables, inputs)
 
@@ -245,7 +250,11 @@ def update_inputs():
     for input in inputs:
         # for each input option
         for option in input_options[input]:
-
+            
+            # enable the input by default
+            selector_string = "#" + input + " option[value='" + option + "']"
+            document.querySelector(selector_string).disabled = False
+            
             status = True
             # for each table in turn
             for key, table in tables.items():
@@ -254,6 +263,7 @@ def update_inputs():
                 if input in table.columns:
                     # check if the option is in the table
                     if option not in table[input].values:
+                        print("option " + str(option) + " is not valid")
                         status = False
                         selector_string = "#" + input + " option[value='" + option + "']"
                         document.querySelector(selector_string).disabled = True
@@ -273,7 +283,7 @@ def IN2_callback():
 
     # get value
     program.IN2 = document.getElementById("IN2").value
-    # update_inputs()
+    update_inputs()
     update_outputs()
 
 
@@ -363,11 +373,29 @@ def update_outputs():
 
     try:
         print("IN1: " + program.IN1)
+    except:
+        pass
+    try:
         print("IN2: " + program.IN2)
+    except:
+        pass
+    try:
         print("IN3: " + program.IN3)
+    except:
+        pass
+    try:
         print("IN4: " + program.IN4)
+    except:
+        pass
+    try:
         print("IN5: " + program.IN5)
+    except:
+        pass
+    try:
         print("IN6: " + program.IN6)
+    except:
+        pass
+    try:
         print("IN7: " + program.IN7)
     except:
         pass
@@ -433,7 +461,7 @@ def update_outputs():
         out = table_4[filter1 & filter2]
 
         if len(out):
-            program.OUT6 = out.iloc[0]["Mechanical and environmental cable performance (terminated as cable assembly)"]
+            program.OUT6 = out.iloc[0]["Mechanical and environmental cable performance"]
             print("OUT6: " + program.OUT6)
 
     # OUT10
