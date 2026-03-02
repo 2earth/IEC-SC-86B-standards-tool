@@ -57,6 +57,32 @@ details[open] {
   }
 }
 
+.glossary-left {
+  float: left;
+  margin: 0;
+  width: 20%;
+  text-align: right;
+  font-style: italic;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    float: left;
+    text-align: left;
+    padding-top: 0.5em;
+  }
+}
+
+.glossary-right {
+  float: left;
+  margin: 0;
+  width: 75%;
+  padding-left: 5%;
+  @media screen and (max-width: 600px) {
+    padding-top: 1em;
+    width: 100%;
+    padding-left: 0%;
+  }
+}
+
 .titlebar {
   border: 1px solid #aaa;
   border-radius: 4px;

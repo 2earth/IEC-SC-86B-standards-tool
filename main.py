@@ -346,6 +346,8 @@ def apply_outputs():
     document.getElementById("OUT15").innerHTML = program.OUT15
     document.getElementById("OUT16").innerHTML = program.OUT16
     document.getElementById("OUT17").innerHTML = program.OUT17
+    document.getElementById("OUT18").innerHTML = program.OUT18
+    document.getElementById("OUT19").innerHTML = program.OUT19
 
 def reset_outputs():
 
@@ -366,6 +368,8 @@ def reset_outputs():
     program.OUT15 = "To be assigned"
     program.OUT16 = "To be assigned"
     program.OUT17 = "To be assigned"
+    program.OUT18 = "To be assigned"
+    program.OUT19 = "To be assigned"
 
     apply_outputs()
 
@@ -463,6 +467,15 @@ def update_outputs():
         if len(out):
             program.OUT6 = out.iloc[0]["Mechanical and environmental cable performance"]
             print("OUT6: " + program.OUT6)
+
+    # OUT18
+    if program.IN2:
+        program.OUT18 = table_7[table_7["Fibre type"]==program.IN2]["Standard"].iloc[0]
+        print("OUT18: " + program.OUT18)
+
+    # OUT19
+    program.OUT19 = table_8[table_8["Scope"]=="Attenuation measurement against reference"]["Standard"].iloc[0]
+    print("OUT19: " + program.OUT19)
 
     # OUT10
     program.OUT10 = table_8[table_8["Scope"]=="Return loss measurement"]["Standard"].iloc[0]
