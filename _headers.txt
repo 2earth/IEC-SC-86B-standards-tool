@@ -1,8 +1,2 @@
-# index:
-/index.html
-  # headers for that path:
-  Access-Control-Allow-Origin: *
-# glossary:
-/glossary.html
-  # headers for that path:
+/*
   Access-Control-Allow-Origin: *
