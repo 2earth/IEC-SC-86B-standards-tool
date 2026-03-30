@@ -30,16 +30,10 @@
     <header>
     </header>
 
-    <!-- Load Python script -->
-    <script type="py" src="./main.py" config="./pyscript.toml"></script>
+    <!-- Load script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+    <script src="main.js"></script>
 
-    <script>
-        // This script hides the loading message when done
-        addEventListener('py:done', () => document.getElementById('header-loading-bar').style.display = 'none');
-        addEventListener('py:done', () => document.getElementById('application').style.display = 'block');
-
-        
-    </script>
 
     <div class="titlebar">
         <span class="input-line" style="padding-top: 0px; margin-top: 0px;">
@@ -52,8 +46,6 @@
         
         <p>This digital tool is intended to assist standards-users in identifying relevant standards for their purpose. In all cases, users are recommended to refer to the latest version of the respective standard.</p>
     </div>
-
-    <div id="header-loading-bar">loading the tool - please wait</div>
 
     <div id="application">        
         

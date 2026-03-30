@@ -276,7 +276,7 @@ img {
 }
 
 #application {
-  display: none;
+  display: block;
 }
 
 select {
